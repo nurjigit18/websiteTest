@@ -19,7 +19,7 @@ header {
     left: 0;
     width: 100%;    /* the width of the header until the end*/
     padding: 20px;  /* can adjust the size of the header*/
-    background-color: rgb(51, 93, 112);
+    background-color: rgb(12, 26, 32);
     display: flex;     /* distributes the space between the items*/
     align-items: center; /* align the itens to the center of the header*/
     justify-content: space-between; /* distrubtion of the header contents, space-between puts contents into equal distance*/
@@ -39,7 +39,7 @@ header {
     font-size: 1.2em;
     color:#eeeeee;
     text-decoration: none; /* turns off hyperlink blue color */
-    font-weight: 560;   /* thickness(bold) of font */
+    font-weight: 400;   /* thickness(bold) of font */
     margin-left: 30px; /* margit between each button */
 }   
 
@@ -55,4 +55,10 @@ header {
     font-size: 1em;
     font-weight: 560;
     margin-left: 30px;
+    transition: 0.5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: #dedeee;
+    color:#000000
 }
