@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Roboto'; /* Name your font family */
+    src: url('font/Roboto/Roboto-Black.ttf'); /* Locate the .ttf file within your directory*/
+}
+@font-face {
+    font-family:'Montserrat'; /* Name your font family */
+    src: url('font/Montserrat/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;    /* the width of the header until the end*/
+    padding: 20px;  /* can adjust the size of the header*/
+    background-color: rgb(12, 26, 32);
+    display: flex;     /* distributes the space between the items*/
+    align-items: center; /* align the itens to the center of the header*/
+    justify-content: space-between; /* distrubtion of the header contents, space-between puts contents into equal distance*/
+    z-index: 90;
+
+}
+/* logo properties */
+.logo {
+    font-size: 2em; 
+    color: #ffe4c4;
+    user-select: none;  /* User cant select logo text */
+    
+}
+
+.navigation a {
+    position: relative; /* allows items to stay at the same position*/
+    font-size: 1.2em;
+    color:#eeeeee;
+    text-decoration: none; /* turns off hyperlink blue color */
+    font-weight: 400;   /* thickness(bold) of font */
+    margin-left: 30px; /* margit between each button */
+}   
+
+.navigation .btnLogin-popup {
+    width: 120px;
+    height: 40px;
+    background: transparent;
+    color:#eeeeee;
+    border: 2px solid #eeeeee;
+    outline: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 560;
+    margin-left: 30px;
+    transition: 0.5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: #dedeee;
+    color:#000000
+}
