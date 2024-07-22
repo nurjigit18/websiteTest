@@ -4,30 +4,42 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if (strlen($_POST["passwordReg"]) < 8) {
+if (strlen($_POST["password"]) < 8) {
     die("Password must be at least 8 characters");
 }
 
-if (! preg_match("/[a-z]/i", $_POST["passwordReg"])) {
+if (! preg_match("/[a-z]/i", $_POST["password"])) {
     die("Password must contain at least one letter");
 }
 
-if (! preg_match("/[0-9]/i", $_POST["passwordReg"])) {
+if (! preg_match("/[0-9]/i", $_POST["password"])) {
     die("Password must contain at least one number");
 }
 
-$password_hash = password_hash($_POST["passwordReg"], PASSWORD_DEFAULT);
+$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 $mysqli = require __DIR__ . "/database.php";
 
-$sql = "INSERT INTO user (name, email, password_hash) 
-        VALUES (?, ?, ?)";
+$sql = "INSERT INTO user (name, email, password_hash) VALUES (?, ?, ?)";
 
 $stmt = $mysqli->stmt_init();
 
-$stmt->prepare($sql);
+if (!$stmt->prepare($sql)) {
+    die("SQL error: " . $mysqli->error);
+}
 
-
-
-print_r($_POST);
-var_dump($password_hash);
+$stmt->bind_param("sss",
+                $_POST["name"],
+                $_POST["email"],
+                $password_hash);
+                
+try {
+    if ($stmt->execute()) {
+        echo("Registration successful");
+    }
+} catch (mysqli_sql_exception $e) {
+    if ($mysqli->errno === 1062) {
+        echo("Email already taken" . "<br/>");
+        die($mysqli->error . " " . $mysqli->errno);
+    } 
+}
