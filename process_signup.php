@@ -35,11 +35,14 @@ $stmt->bind_param("sss",
                 
 try {
     if ($stmt->execute()) {
-        echo("Registration successful");
+        header("Location: signup-success.html");
+        exit;
     }
 } catch (mysqli_sql_exception $e) {
     if ($mysqli->errno === 1062) {
-        echo("Email already taken" . "<br/>");
-        die($mysqli->error . " " . $mysqli->errno);
+        die("Email already taken" . "<br/>");
     } 
+    else {
+        die($mysqli->error . " " . $mysqli->errno);
+    }
 }

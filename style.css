@@ -89,6 +89,26 @@ header {
     color:#000000
 }
 
+.navigation .btnLogout-popup {
+    width: 120px;
+    height: 40px;
+    background: transparent;
+    color:#eeeeee;
+    border: 2px solid #eeeeee; 
+    outline: none;
+    border-radius: 7px;
+    cursor: pointer;    /* changes cursor icon when hovering */
+    font-size: 1em;
+    font-weight: 560;
+    margin-left: 30px;
+    transition: 0.5s;   /* smooth transition*/
+}
+
+.navigation .btnLogout-popup:hover {
+    background: #dedeee;
+    color:#000000
+}
+
 .wrapper {
     position: relative;
     width: 400px;
@@ -267,4 +287,10 @@ header {
 
 .login-register p a:hover {
     text-decoration: underline;
+}
+
+header .navigation .user-name {
+    color: #adf3ec !important;
+    margin-right: 20px;
+    font-weight: bold;
 }
