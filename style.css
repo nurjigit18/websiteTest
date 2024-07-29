@@ -28,7 +28,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;    /* the width of the header until the end*/
-    padding: 20px;  /* can adjust the size of the header*/
+    padding: 10px;  /* can adjust the size of the header*/
     background-color: rgb(12, 26, 32);
     display: flex;     /* distributes the space between the items*/
     align-items: center; /* align the itens to the center of the header*/
@@ -38,10 +38,7 @@ header {
 }
 /* logo properties */
 .logo {
-    font-size: 2em; 
-    color: #ffe4c4;
-    user-select: none;  /* User cant select logo text */
-    
+    margin-left: 30px;  
 }
 
 .navigation a {
